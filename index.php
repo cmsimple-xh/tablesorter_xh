@@ -50,15 +50,15 @@ function tablesorter()
     include_jQueryPlugin(
         'tablesorter',
         $pth['folder']['plugins']
-        . 'tablesorter/tablesorter/js/jquery.tablesorter.js'
+        . 'tablesorter/lib/js/jquery.tablesorter.js'
     );
     $theme = $pcf['theme'];
-    $filename = $pth['folder']['plugins'] . 'tablesorter/tablesorter/css/theme.'
+    $filename = $pth['folder']['plugins'] . 'tablesorter/lib/css/theme.'
         . $pcf['theme'] . '.css';
     if (!is_readable($filename)) {
         $theme = 'default';
         $filename = $pth['folder']['plugins']
-            . 'tablesorter/tablesorter/css/theme.default.css';
+            . 'tablesorter/lib/css/theme.default.css';
     }
     $widgets = $pcf['zebra'] ? ', widgets: ["zebra"]' : '';
     $hjs .= tag('link rel="stylesheet" href="' . $filename . '" type="text/css"')
@@ -79,7 +79,7 @@ function Tablesorter_findThemes()
     global $pth;
 
     $themes = array();
-    $filename = $pth['folder']['plugins'] . 'tablesorter/tablesorter/css';
+    $filename = $pth['folder']['plugins'] . 'tablesorter/lib/css';
     $files = new DirectoryIterator($filename);
     foreach ($files as $file) {
         if (preg_match('/theme\.(.*)\.css$/', $file, $matches)) {
