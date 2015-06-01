@@ -72,7 +72,7 @@ function Tablesorter_systemCheck()
 {
     global $pth, $tx, $plugin_tx;
 
-    define('TABLESORTER_PHP_VERSION', '5.0.0');
+    define('TABLESORTER_PHP_VERSION', '5.1.2');
     $ptx = $plugin_tx['tablesorter'];
     $imgdir = $pth['folder']['plugins'] . 'tablesorter/images/';
     $ok = tag('img src="' . $imgdir . 'ok.png" alt="ok"');
