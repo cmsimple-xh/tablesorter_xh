@@ -21,7 +21,7 @@ if (!defined('CMSIMPLE_XH_VERSION')) {
 /**
  * The plugin version.
  */
-define('TABLESORTER_VERSION', '1beta1');
+define('TABLESORTER_VERSION', '@TABLESORTER_VERSION@');
 
 /**
  * Makes all <table class="sortable"> sortable.
