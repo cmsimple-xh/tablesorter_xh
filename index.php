@@ -3,7 +3,7 @@
 /**
  * Front-end of Tablesorter_XH.
  *
- * PHP version 4 and 5
+ * PHP version 5
  *
  * @category  CMSimple_XH
  * @package   Tablesorter
@@ -65,6 +65,28 @@ function tablesorter()
         . '<script type="text/javascript">/* <![CDATA[ */jQuery(function()'
         . ' {jQuery("table.sortable").tablesorter({theme: "' . $theme
         . '", sortLocaleCompare: true' . $widgets . '})})/* ]]> */</script>';
+}
+
+/**
+ * Returns the available themes.
+ *
+ * @return array
+ *
+ * @global array The paths of system files and folders.
+ */
+function Tablesorter_findThemes()
+{
+    global $pth;
+
+    $themes = array();
+    $filename = $pth['folder']['plugins'] . 'tablesorter/tablesorter/css';
+    $files = new DirectoryIterator($filename);
+    foreach ($files as $file) {
+        if (preg_match('/theme\.(.*)\.css$/', $file, $matches)) {
+            $themes[] = $matches[1];
+        }
+    }
+    return $themes;
 }
 
 /*
