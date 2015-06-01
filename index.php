@@ -26,13 +26,13 @@ function Tablesorter()
 {
     global $hjs, $pth, $plugin_cf;
     static $again = false;
-    
+
     if ($again) {
         return;
     }
     $again = true;
     $pcf = $plugin_cf['tablesorter'];
-    
+
     require_once $pth['folder']['plugins'] . 'jquery/jquery.inc.php';
     include_jQuery();
     include_jQueryPlugin('tablesorter', $pth['folder']['plugins']
