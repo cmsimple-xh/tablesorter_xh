@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Front-end of Tablesorter_XH.
+ * Tablesorter_XH entry point.
  *
  * PHP version 5
  *
@@ -12,11 +12,6 @@
  * @license   http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
  * @link      http://3-magi.net/?CMSimple_XH/Tablesorter_XH
  */
-
-if (!defined('CMSIMPLE_XH_VERSION')) {
-    header('HTTP/1.0 403 Forbidden');
-    exit;
-}
 
 /**
  * The plugin version.
