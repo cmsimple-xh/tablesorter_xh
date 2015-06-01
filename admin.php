@@ -4,7 +4,7 @@
 /**
  * Back-End of Tablesorter_XH.
  *
- * Copyright (c) 2012 Christoph M. Becker (see license.txt)
+ * Copyright (c) 2012-2015 Christoph M. Becker (see license.txt)
  */
 
 
@@ -26,7 +26,7 @@ function Tablesorter_version() {
         . tag('img style="float:left; margin-right:10px" src="' . $pth['folder']['plugins']
               . 'tablesorter/tablesorter.png" alt="Plugin icon"')
         . '<p style="margin-top: 1em">Version: ' . TABLESORTER_VERSION . '</p>'
-        . '<p>Copyright &copy; 2012 <a href="http://3-magi.net/">Christoph M. Becker</a></p>'
+        . '<p>Copyright &copy; 2012-2015 <a href="http://3-magi.net/">Christoph M. Becker</a></p>'
 	. '<p>Tablesorter_XH is powered by the <a href="https://github.com/Mottie/tablesorter">'
 	. 'jQuery tablesorter plugin</a>.</p>'
         . '<p style="text-align: justify">This program is free software: you can redistribute it and/or modify'

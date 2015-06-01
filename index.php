@@ -3,7 +3,7 @@
 /**
  * Front-end of Tablesorter_XH.
  *
- * Copyright (c) 2012 Christoph M. Becker (see license.txt)
+ * Copyright (c) 2012-2015 Christoph M. Becker (see license.txt)
  */
 
 
