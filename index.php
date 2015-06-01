@@ -89,11 +89,7 @@ function Tablesorter_findThemes()
     return $themes;
 }
 
-/*
- * Handle auto mode.
- */
-if ($plugin_cf['tablesorter']['auto']) {
-    Tablesorter();
-}
+$temp = new Tablesorter_Controller();
+$temp->dispatch();
 
 ?>
