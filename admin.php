@@ -83,13 +83,8 @@ function Tablesorter_systemCheck()
         . '&nbsp;&nbsp;'
         . sprintf($ptx['syscheck_phpversion'], TABLESORTER_PHP_VERSION)
         . tag('br') . tag('br');
-    $o .= (strtoupper($tx['meta']['codepage']) == 'UTF-8' ? $ok : $warn)
-        . '&nbsp;&nbsp;' . $ptx['syscheck_encoding'] . tag('br');
     $o .= (!get_magic_quotes_runtime() ? $ok : $fail)
-        . '&nbsp;&nbsp;' . $ptx['syscheck_magic_quotes'] . tag('br');
-    $filename = $pth['folder']['plugins'] . 'jquery/jquery.inc.php';
-    $o .= (file_exists($filename) ? $ok : $fail)
-        . '&nbsp;&nbsp;' . $ptx['syscheck_jquery'] . tag('br') . tag('br');
+        . '&nbsp;&nbsp;' . $ptx['syscheck_magic_quotes'] . tag('br') . tag('br');
     foreach (array('config/', 'languages/') as $folder) {
         $folders[] = $pth['folder']['plugins'] . 'tablesorter/' . $folder;
     }
