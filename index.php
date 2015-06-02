@@ -19,7 +19,7 @@
 define('TABLESORTER_VERSION', '@TABLESORTER_VERSION@');
 
 /**
- * Makes all <table class="sortable"> sortable.
+ * Makes all <table class="tablesorter"> sortable.
  *
  * @return void
  *
@@ -58,7 +58,7 @@ function tablesorter()
     $widgets = $pcf['zebra'] ? ', widgets: ["zebra"]' : '';
     $hjs .= tag('link rel="stylesheet" href="' . $filename . '" type="text/css"')
         . '<script type="text/javascript">/* <![CDATA[ */jQuery(function()'
-        . ' {jQuery("table.sortable").tablesorter({theme: "' . $theme
+        . ' {jQuery("table.tablesorter").tablesorter({theme: "' . $theme
         . '", sortLocaleCompare: true' . $widgets . '})})/* ]]> */</script>';
 }
 
