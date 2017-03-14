@@ -1,34 +1,26 @@
 <?php
 
 /**
- * Tablesorter_XH entry point.
+ * Copyright 2012-2017 Christoph M. Becker
  *
- * PHP version 5
+ * This file is part of Tablesorter_XH.
  *
- * @category  CMSimple_XH
- * @package   Tablesorter
- * @author    Christoph M. Becker <cmbecker69@gmx.de>
- * @copyright 2012-2017 Christoph M. Becker <http://3-magi.net/>
- * @license   http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
- * @link      http://3-magi.net/?CMSimple_XH/Tablesorter_XH
+ * Tablesorter_XH is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Tablesorter_XH is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Tablesorter_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * The plugin version.
- */
 define('TABLESORTER_VERSION', '@TABLESORTER_VERSION@');
 
-/**
- * Makes all <table class="tablesorter"> sortable.
- *
- * @return void
- *
- * @global string The (X)HTML fragment to insert into the head element.
- * @global array  The paths of system files and folders.
- * @global array  The configuration of the plugins.
- *
- * @staticvar bool $again Whether the function has already been executed.
- */
 function tablesorter()
 {
     global $hjs, $pth, $plugin_cf;
@@ -63,11 +55,7 @@ function tablesorter()
 }
 
 /**
- * Returns the available themes.
- *
  * @return array
- *
- * @global array The paths of system files and folders.
  */
 function Tablesorter_findThemes()
 {
@@ -86,5 +74,3 @@ function Tablesorter_findThemes()
 
 $temp = new Tablesorter\Controller();
 $temp->dispatch();
-
-?>
