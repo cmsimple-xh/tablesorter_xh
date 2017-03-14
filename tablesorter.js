@@ -47,7 +47,7 @@
     }
 
     function setClass(element, className) {
-        var newClassName = element.className.replace(/(?:^|\s)tablesorter_[a-z]+(?!\S)/, "");
+        var newClassName = element.className.replace(/(?:^|\s)tablesorter_(?:asc|desc|ascdesc)(?!\S)/, "");
         if (newClassName !== "") {
             newClassName += " ";
         }
@@ -78,13 +78,23 @@
         });
 
         var headings = find(".tablesorter thead th");
+        var hiddenColumns = [];
         each(headings, function (heading, index) {
+            if (hasClass(heading, "tablesorter_hide")) {
+                hiddenColumns.push(index);
+            }
             setClass(heading, "tablesorter_ascdesc");
             on(heading, "click", function () {
                 var table = heading;
                 while (table.nodeName.toLowerCase() !== "table") {
                     table = table.parentNode;
                 }
+                each(find(".tablesorter_detail", table), function (row) {
+                    row.parentNode.removeChild(row);
+                });
+                each(find(".tablesorter_collapse", table), function (button) {
+                    button.className = "tablesorter_expand";
+                });
                 each(headings, function (heading2) {
                     if (heading2 !== heading) {
                         setClass(heading2, "tablesorter_ascdesc");
@@ -99,5 +109,41 @@
                 }
             });
         });
+
+        if (hiddenColumns.length) {
+            each(find(".tablesorter tr"), function (row) {
+                each(hiddenColumns, function (column) {
+                    var cell = row.cells[column];
+                    cell.style.display = "none";
+                })
+                if (row.parentNode.nodeName.toLowerCase() === "tbody") {
+                    var button = document.createElement("button");
+                    button.className = "tablesorter_expand";
+                    button.onclick = (function () {
+                        if (this.className === "tablesorter_expand") {
+                            var detailRow = row.parentNode.insertRow(row.sectionRowIndex + 1);
+                            detailRow.className = "tablesorter_detail";
+                            var detailCell = detailRow.insertCell();
+                            detailCell.colSpan = row.cells.length;
+                            var defList = document.createElement("dl");
+                            each(hiddenColumns, function (column) {
+                                var dt = document.createElement("dt");
+                                dt.innerHTML = headings[column].innerHTML;
+                                defList.appendChild(dt);
+                                var dd = document.createElement("dd");
+                                dd.innerHTML = row.cells[column].innerHTML;
+                                defList.appendChild(dd);
+                            });
+                            detailCell.appendChild(defList);
+                            this.className = "tablesorter_collapse";
+                        } else {
+                            row.parentNode.deleteRow(row.sectionRowIndex + 1);
+                            this.className = "tablesorter_expand";
+                        }
+                    });
+                    row.cells[0].insertBefore(button, row.cells[0].firstChild);
+                }
+            });
+        }
     });
 }());

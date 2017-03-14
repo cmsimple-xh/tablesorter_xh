@@ -11,9 +11,12 @@
 
 <h1>Tablesorter_XH &ndash; a CMSimple_XH Plugin</h1>
 <img src="../tablesorter.png" style="float:left; margin-right: 16px" alt="Sortable table">
-<p style="text-align:justify">Tablesorter_XH facilitates to display tables,
-which can be sorted by the visitors of your website, if JS is enabled in their
-browser.</p>
+<p style="text-align:justify">
+    Tablesorter_XH facilitates semi-automatic enhancement of tables in browsers
+    which support somewhat contemporary JavaScript. Sorting by single columns in
+    ascending and descending order, and hiding of predefined columns which can
+    be expanded, is supported.
+</p>
 
 <ul id="nav">
 <li><a href="#notice">Important Notice</a></li>
@@ -74,11 +77,21 @@ or customize them according to your needs.</p>
 <h2 id="usage">Usage</h2>
 <p>
     To turn a table into a sortable table, you have to give it the CSS class
-    "tablesorter". Furthermore it is mandatory that the table has a &lt;thead&gt;
-    with &lt;th&gt; cells and a &lt;tbody&gt; section.
+    "tablesorter". Furthermore it is mandatory that the table has a
+    <code>&lt;thead&gt;</code> with <code>&lt;th&gt;</code> cells and a
+    <code>&lt;tbody&gt;</code> section.
 </p>
-<p>To actually make the table sortable, you have to add the following plugin
-call somewhere on the page:</p>
+<p>
+    To make wide tables better viewable, you can select less important columns
+    which will not be shown, but the visitor will be able to expand a column to
+    view the hidden column contents. To mark a column as hidden, just add the
+    CSS class <code>tablesorter_hide</code> to the respective
+    <code>&lt;th&gt;</code>.
+</p>
+<p>
+    To actually enable the table enhancements, you have to add the following
+    plugin call somewhere on the page:
+</p>
 <pre>{{{tablesorter();}}}</pre>
 <p>Alternatively, you can enable the "auto" option in the plugin
 configuration.</p>
@@ -104,6 +117,11 @@ freely available.</p>
     The sort icons are taken from <a
     href="http://commons.wikimedia.org/wiki/Category:Table_sort_icons">MediaWiki</a>.
     Many thanks for publishing these icons as public domain.
+</p>
+<p>
+    The plugin also uses <a href="https://material.io/icons/">Material Design
+    Icons</a> by Google. Thanks for making these available under Apache License
+    2.0.
 </p>
 <!--<p>Many thanks to the community at the <a href="http://www.cmsimpleforum.com">CMSimple forum</a>-->
 <!--for tips, suggestions and testing.</p>-->

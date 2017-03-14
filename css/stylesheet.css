@@ -26,3 +26,22 @@
 .tablesorter tbody tr:nth-child(2n) {
     background: #eee;
 }
+
+.tablesorter_expand {
+    width: 24px;
+    height: 24px;
+    background: no-repeat center url("expand.png");
+    margin-right: 1em;
+}
+.tablesorter_collapse {
+    width: 24px;
+    height: 24px;
+    margin-right: 1em;
+    background: no-repeat center url("collapse.png");
+}
+.tablesorter dl {
+    margin-left: 2em;
+}
+.tablesorter dt {
+    font-weight: bold;
+}
