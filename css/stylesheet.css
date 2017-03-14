@@ -1,0 +1,15 @@
+.tablesorter thead td {
+    padding-right: 24px;
+}
+.tablesorter_ascdesc {
+    background: url("ascdesc.gif") no-repeat right center;
+    cursor: pointer;
+}
+.tablesorter_asc {
+    background: url("asc.gif") no-repeat right center;
+    cursor: pointer;
+}
+.tablesorter_desc {
+    background: url("desc.gif") no-repeat right center;
+    cursor: pointer;
+}

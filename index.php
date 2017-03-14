@@ -23,29 +23,15 @@ define('TABLESORTER_VERSION', '@TABLESORTER_VERSION@');
 
 function tablesorter()
 {
-    global $hjs, $pth, $plugin_cf;
+    global $bjs, $pth;
     static $again = false;
 
     if ($again) {
         return;
     }
     $again = true;
-    $pcf = $plugin_cf['tablesorter'];
-
-    include_once $pth['folder']['plugins'] . 'jquery/jquery.inc.php';
-    include_jQuery();
-    include_jQueryPlugin(
-        'tablesorter',
-        $pth['folder']['plugins']
-        . 'tablesorter/lib/js/jquery.tablesorter.min.js'
-    );
-    $filename = $pth['folder']['plugins']
-        . 'tablesorter/lib/css/theme.default.min.css';
-    $widgets = $pcf['zebra'] ? ', widgets: ["zebra"]' : '';
-    $hjs .= tag('link rel="stylesheet" href="' . $filename . '" type="text/css"')
-        . '<script type="text/javascript">/* <![CDATA[ */jQuery(function()'
-        . ' {jQuery("table.tablesorter").tablesorter({theme: "default"'
-        . ', sortLocaleCompare: true' . $widgets . '})})/* ]]> */</script>';
+    $bjs .= '<script type="text/javascript" src="' . $pth['folder']['plugins']
+        . 'tablesorter/tablesorter.js"></script>';
 }
 
 $temp = new Tablesorter\Controller();
