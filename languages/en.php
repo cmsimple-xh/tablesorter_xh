@@ -7,6 +7,5 @@ $plugin_tx['tablesorter']['syscheck_magic_quotes']="Magic quotes runtime off";
 $plugin_tx['tablesorter']['syscheck_writable']="Folder '%s' writable";
 
 $plugin_tx['tablesorter']['cf_auto']="Whether the Tablesorter should be activated automatically.";
-$plugin_tx['tablesorter']['cf_zebra']="Whether to apply zebra stripes for the rows.";
 
 ?>

@@ -13,3 +13,16 @@
     background: url("desc.gif") no-repeat right center;
     cursor: pointer;
 }
+
+/*
+ * Zebra look
+ */
+.tablesorter tbody tr {
+    color: black;
+}
+.tablesorter tbody tr:nth-child(2n+1) {
+    background: #fff;
+}
+.tablesorter tbody tr:nth-child(2n) {
+    background: #eee;
+}
