@@ -2,15 +2,15 @@
     padding-right: 24px;
 }
 .tablesorter_ascdesc {
-    background: url("ascdesc.gif") no-repeat right center;
+    background: url("ascdesc-black.png") no-repeat right center;
     cursor: pointer;
 }
 .tablesorter_asc {
-    background: url("asc.gif") no-repeat right center;
+    background: url("asc-black.png") no-repeat right center;
     cursor: pointer;
 }
 .tablesorter_desc {
-    background: url("desc.gif") no-repeat right center;
+    background: url("desc-black.png") no-repeat right center;
     cursor: pointer;
 }
 
@@ -30,14 +30,14 @@
 .tablesorter_expand {
     width: 24px;
     height: 24px;
-    background: no-repeat center url("expand.png");
+    background: no-repeat center url("expand-black.png");
     margin-right: 1em;
 }
 .tablesorter_collapse {
     width: 24px;
     height: 24px;
     margin-right: 1em;
-    background: no-repeat center url("collapse.png");
+    background: no-repeat center url("collapse-black.png");
 }
 .tablesorter dl {
     margin-left: 2em;
