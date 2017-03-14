@@ -28,24 +28,20 @@
     background: #eee;
 }
 
-.tablesorter_expand {
+.tablesorter_expand, .tablesorter_collapse {
     width: 24px;
     height: 24px;
     margin-right: 1em;
-    background-image: url("expand-black.png");
     background-position: center;
     background-repeat: no-repeat;
-    border-style: outset;
+}
+.tablesorter_expand {
+    background-image: url("expand-black.png");
 }
 .tablesorter_collapse {
-    width: 24px;
-    height: 24px;
-    margin-right: 1em;
     background-image: url("collapse-black.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    border-style: inset;
 }
+
 .tablesorter dl {
     margin-left: 2em;
 }
