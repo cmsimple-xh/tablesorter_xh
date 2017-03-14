@@ -104,6 +104,11 @@
             }
         }
         each(headings, function (heading, index) {
+            var button = document.createElement("button");
+            while (heading.firstChild) {
+                button.appendChild(heading.firstChild);
+            }
+            heading.appendChild(button);
             if (hasClass(heading, "tablesorter_hide")) {
                 hiddenColumns.push(index);
             } else {
@@ -115,8 +120,8 @@
                     }
                 });
             }
-            setClass(heading, "tablesorter_ascdesc");
-            on(heading, "click", function () {
+            setClass(heading.firstChild, "tablesorter_ascdesc");
+            on(heading.firstChild, "click", function () {
                 var table = heading;
                 while (table.nodeName.toLowerCase() !== "table") {
                     table = table.parentNode;
@@ -128,15 +133,15 @@
                     button.className = "tablesorter_expand";
                 });
                 each(headings, function (heading2) {
-                    if (heading2 !== heading) {
-                        setClass(heading2, "tablesorter_ascdesc");
+                    if (heading2.firstChild !== heading.firstChild) {
+                        setClass(heading2.firstChild, "tablesorter_ascdesc");
                     }
                 });
-                if (hasClass(heading, "tablesorter_asc")) {
-                    setClass(heading, "tablesorter_desc");
+                if (hasClass(heading.firstChild, "tablesorter_asc")) {
+                    setClass(heading.firstChild, "tablesorter_desc");
                     sort(table, index, true);
                 } else {
-                    setClass(heading, "tablesorter_asc");
+                    setClass(heading.firstChild, "tablesorter_asc");
                     sort(table, index, false);
                 }
             });
@@ -160,7 +165,7 @@
                             var defList = document.createElement("dl");
                             each(hiddenColumns, function (column) {
                                 var dt = document.createElement("dt");
-                                dt.innerHTML = headings[column].innerHTML;
+                                dt.innerHTML = headings[column].firstChild.innerHTML;
                                 defList.appendChild(dt);
                                 var dd = document.createElement("dd");
                                 dd.innerHTML = row.cells[column].innerHTML;

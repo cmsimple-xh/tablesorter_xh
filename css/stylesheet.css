@@ -1,17 +1,18 @@
-.tablesorter thead th {
+.tablesorter thead th button{
     padding-right: 24px;
 }
+.tablesorter_ascdesc, .tablesorter_asc, .tablesorter_desc {
+    background-position: right center;
+    background-repeat: no-repeat;
+}
 .tablesorter_ascdesc {
-    background: url("ascdesc-black.png") no-repeat right center;
-    cursor: pointer;
+    background-image: url("ascdesc-black.png");
 }
 .tablesorter_asc {
-    background: url("asc-black.png") no-repeat right center;
-    cursor: pointer;
+    background-image: url("asc-black.png");
 }
 .tablesorter_desc {
-    background: url("desc-black.png") no-repeat right center;
-    cursor: pointer;
+    background-image: url("desc-black.png");
 }
 
 /*
