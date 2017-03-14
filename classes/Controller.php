@@ -8,7 +8,7 @@
  * @category  CMSimple_XH
  * @package   Tablesorter
  * @author    Christoph M. Becker <cmbecker69@gmx.de>
- * @copyright 2012-2015 Christoph M. Becker <http://3-magi.net/>
+ * @copyright 2012-2017 Christoph M. Becker <http://3-magi.net/>
  * @license   http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
  * @link      http://3-magi.net/?CMSimple_XH/Tablesorter_XH
  */
@@ -107,7 +107,7 @@ class Tablesorter_Controller
                 . 'tablesorter/tablesorter.png" alt="Plugin icon"'
             )
             . '<p style="margin-top: 1em">Version: ' . TABLESORTER_VERSION . '</p>'
-            . '<p>Copyright &copy; 2012-2015 <a href="http://3-magi.net/">'
+            . '<p>Copyright &copy; 2012-2017 <a href="http://3-magi.net/">'
             . 'Christoph M. Becker</a></p>'
             . '<p>Tablesorter_XH is powered by the <a href="https://github.com/'
             . 'Mottie/tablesorter">jQuery tablesorter plugin</a>.</p>'
