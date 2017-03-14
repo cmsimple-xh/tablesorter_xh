@@ -55,6 +55,17 @@
         element.className = newClassName;
     }
 
+    function getViewportWidth()
+    {
+        if (typeof window.innerWidth !== "undefined") {
+            return window.innerWidth;
+        } else if (document.compatMode === "CSS1Compat") {
+            return document.documentElement.clientWidth;
+        } else {
+            document.body.clientWidth;
+        }
+    }
+
     on(window, "load", function () {
         var sort = (function (table, column, desc) {
             var tbody = table.tBodies[0];
@@ -79,9 +90,30 @@
 
         var headings = find(".tablesorter thead th");
         var hiddenColumns = [];
+        var viewportWidth = getViewportWidth();
+        var breakpoints = ({
+            "tablesorter_large": 1200,
+            "tablesorter_medium": 992,
+            "tablesorter_small": 768,
+            "tablesorter_x_small": 480
+        });
+        var classesToHide = [];
+        for (var prop in breakpoints) {
+            if (breakpoints.hasOwnProperty(prop) && viewportWidth < breakpoints[prop]) {
+                classesToHide.push(prop);
+            }
+        }
         each(headings, function (heading, index) {
             if (hasClass(heading, "tablesorter_hide")) {
                 hiddenColumns.push(index);
+            } else {
+                var alreadyHidden = false;
+                each(classesToHide, function (className) {
+                    if (!alreadyHidden && hasClass(heading, className)) {
+                        hiddenColumns.push(index);
+                        alreadyHidden = true;
+                    }
+                });
             }
             setClass(heading, "tablesorter_ascdesc");
             on(heading, "click", function () {
