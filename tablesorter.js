@@ -77,7 +77,7 @@
             });
         });
 
-        var headings = find(".tablesorter thead td");
+        var headings = find(".tablesorter thead th");
         each(headings, function (heading, index) {
             setClass(heading, "tablesorter_ascdesc");
             on(heading, "click", function () {
