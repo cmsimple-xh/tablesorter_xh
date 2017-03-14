@@ -84,7 +84,7 @@ function Tablesorter_findThemes()
     return $themes;
 }
 
-$temp = new Tablesorter_Controller();
+$temp = new Tablesorter\Controller();
 $temp->dispatch();
 
 ?>

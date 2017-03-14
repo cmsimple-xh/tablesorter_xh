@@ -13,6 +13,8 @@
  * @link      http://3-magi.net/?CMSimple_XH/Tablesorter_XH
  */
 
+namespace Tablesorter;
+
 /**
  * Autoloads the plugin classes.
  *
@@ -20,14 +22,14 @@
  *
  * @return void
  */
-function Tablesorter_autoload($class)
+function autoload($class)
 {
-    $parts = explode('_', $class, 2);
+    $parts = explode('\\', $class, 2);
     if ($parts[0] == 'Tablesorter') {
         include_once dirname(__FILE__) . '/' . $parts[1] . '.php';
     }
 }
 
-spl_autoload_register('Tablesorter_autoload');
+spl_autoload_register('Tablesorter\\autoload');
 
 ?>

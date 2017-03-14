@@ -13,6 +13,8 @@
  * @link      http://3-magi.net/?CMSimple_XH/Tablesorter_XH
  */
 
+namespace Tablesorter;
+
 /**
  * The plugin controllers.
  *
@@ -22,7 +24,7 @@
  * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
  * @link     http://3-magi.net/?CMSimple_XH/Tablesorter_XH
  */
-class Tablesorter_Controller
+class Controller
 {
     /**
      * Dispatches on plugin related requests.
@@ -140,7 +142,7 @@ class Tablesorter_Controller
     {
         global $pth, $plugin_tx;
     
-        $phpVersion =  '5.1.2';
+        $phpVersion =  '5.3.0';
         $ptx = $plugin_tx['tablesorter'];
         $imgdir = $pth['folder']['plugins'] . 'tablesorter/images/';
         $ok = tag('img src="' . $imgdir . 'ok.png" alt="ok"');
