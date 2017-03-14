@@ -123,7 +123,7 @@ class Controller
             . tag('br') . tag('br');
         $o .= (!get_magic_quotes_runtime() ? $ok : $fail)
             . '&nbsp;&nbsp;' . $ptx['syscheck_magic_quotes'] . tag('br') . tag('br');
-        foreach (array('config/', 'languages/') as $folder) {
+        foreach (array('config/', 'css/', 'languages/') as $folder) {
             $folders[] = $pth['folder']['plugins'] . 'tablesorter/' . $folder;
         }
         foreach ($folders as $folder) {
