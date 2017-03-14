@@ -1,4 +1,5 @@
 .tablesorter thead th button{
+    width: 100%;
     padding-right: 24px;
 }
 .tablesorter_ascdesc, .tablesorter_asc, .tablesorter_desc {
