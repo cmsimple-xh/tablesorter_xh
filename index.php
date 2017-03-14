@@ -39,37 +39,13 @@ function tablesorter()
         $pth['folder']['plugins']
         . 'tablesorter/lib/js/jquery.tablesorter.min.js'
     );
-    $theme = $pcf['theme'];
-    $filename = $pth['folder']['plugins'] . 'tablesorter/lib/css/theme.'
-        . $pcf['theme'] . '.min.css';
-    if (!is_readable($filename)) {
-        $theme = 'default';
-        $filename = $pth['folder']['plugins']
-            . 'tablesorter/lib/css/theme.default.min.css';
-    }
+    $filename = $pth['folder']['plugins']
+        . 'tablesorter/lib/css/theme.default.min.css';
     $widgets = $pcf['zebra'] ? ', widgets: ["zebra"]' : '';
     $hjs .= tag('link rel="stylesheet" href="' . $filename . '" type="text/css"')
         . '<script type="text/javascript">/* <![CDATA[ */jQuery(function()'
-        . ' {jQuery("table.tablesorter").tablesorter({theme: "' . $theme
-        . '", sortLocaleCompare: true' . $widgets . '})})/* ]]> */</script>';
-}
-
-/**
- * @return array
- */
-function Tablesorter_findThemes()
-{
-    global $pth;
-
-    $themes = array();
-    $filename = $pth['folder']['plugins'] . 'tablesorter/lib/css';
-    $files = new DirectoryIterator($filename);
-    foreach ($files as $file) {
-        if (preg_match('/theme\.(.*)\.min\.css$/', $file, $matches)) {
-            $themes[] = $matches[1];
-        }
-    }
-    return $themes;
+        . ' {jQuery("table.tablesorter").tablesorter({theme: "default"'
+        . ', sortLocaleCompare: true' . $widgets . '})})/* ]]> */</script>';
 }
 
 $temp = new Tablesorter\Controller();
