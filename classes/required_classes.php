@@ -15,21 +15,11 @@
 
 namespace Tablesorter;
 
-/**
- * Autoloads the plugin classes.
- *
- * @param string $class A class name.
- *
- * @return void
- */
-function autoload($class)
-{
+spl_autoload_register(function ($class) {
     $parts = explode('\\', $class, 2);
     if ($parts[0] == 'Tablesorter') {
-        include_once dirname(__FILE__) . '/' . $parts[1] . '.php';
+        include_once __DIR__ . '/' . $parts[1] . '.php';
     }
-}
-
-spl_autoload_register('Tablesorter\\autoload');
+});
 
 ?>
