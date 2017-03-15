@@ -98,9 +98,11 @@ or customize them according to your needs.</p>
     according to the browser's locale. This does not work well for numeric
     columns, so it is possible to mark a numeric column as such by adding the
     CSS class <code>tablesorter_numeric</code> to the column's
-    <code>&lt;th&gt;</code>. Sorting arbitrary dates and/or times is not
-    supported; if you need this, just use ISO 8601 date/time formats, such as
-    <code>2017-03-15</code> and <code>08:12</code>.
+    <code>&lt;th&gt;</code>. Note that thousands separators are not supported,
+    and that only dots (<code>.</code>) are supported as decimal separator.
+    Sorting arbitrary dates and/or times is also unsupported; if you need this,
+    just use ISO 8601 date/time formats, such as <code>2017-03-15</code> and
+    <code>08:12</code> in which case string comparison works fine.
 </p>
 <p>
     To actually enable the table enhancements, you have to add the following
