@@ -55,8 +55,15 @@
         element.className = newClassName;
     }
 
-    function getViewportWidth()
-    {
+    function setTextContent(element, content) {
+        if (typeof element.textContent !== "undefined") {
+            element.textContent = content;
+        } else {
+            element.innerText = content;
+        }
+    }
+
+    function getViewportWidth() {
         if (typeof window.innerWidth !== "undefined") {
             return window.innerWidth;
         } else if (document.compatMode === "CSS1Compat") {
@@ -169,6 +176,7 @@
                 if (row.parentNode.nodeName.toLowerCase() === "tbody") {
                     var button = document.createElement("button");
                     button.className = "tablesorter_expand";
+                    setTextContent(button, TABLESORTER.show);
                     button.onclick = (function () {
                         if (this.className === "tablesorter_expand") {
                             var detailRow = row.parentNode.insertRow(row.sectionRowIndex + 1);
@@ -186,9 +194,11 @@
                             });
                             detailCell.appendChild(defList);
                             this.className = "tablesorter_collapse";
+                            setTextContent(this, TABLESORTER.hide);
                         } else {
                             row.parentNode.deleteRow(row.sectionRowIndex + 1);
                             this.className = "tablesorter_expand";
+                            setTextContent(this, TABLESORTER.show);
                         }
                     });
                     var lastColumn = row.cells.length - 1;

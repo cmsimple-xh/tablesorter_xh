@@ -1,5 +1,8 @@
 <?php
 
+$plugin_tx['tablesorter']['label_show']="more";
+$plugin_tx['tablesorter']['label_hide']="less";
+
 $plugin_tx['tablesorter']['syscheck_title']="System check";
 $plugin_tx['tablesorter']['syscheck_phpversion']="PHP version ≥ %s";
 $plugin_tx['tablesorter']['syscheck_extension']="Extension '%s' loaded";

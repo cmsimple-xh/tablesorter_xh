@@ -30,16 +30,16 @@
 }
 
 .tablesorter_expand, .tablesorter_collapse {
-    width: 24px;
-    height: 24px;
-    background-position: center;
+    width: 100%;
+    padding-right: 24px;
+    background-position: right center;
     background-repeat: no-repeat;
 }
 .tablesorter_expand {
-    background-image: url("expand-black.png");
+    background-image: url("desc-black.png");
 }
 .tablesorter_collapse {
-    background-image: url("collapse-black.png");
+    background-image: url("asc-black.png");
 }
 
 .tablesorter dl {
