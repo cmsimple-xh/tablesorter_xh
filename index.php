@@ -23,15 +23,16 @@ define('TABLESORTER_VERSION', '@TABLESORTER_VERSION@');
 
 function tablesorter()
 {
-    global $bjs, $pth, $plugin_tx;
+    global $bjs, $pth, $plugin_cf, $plugin_tx;
     static $again = false;
 
     if ($again) {
         return;
     }
     $again = true;
+    $pcf = $plugin_cf['tablesorter'];
     $ptx = $plugin_tx['tablesorter'];
-    $config = array('show' => $ptx['label_show'], 'hide' => $ptx['label_hide']);
+    $config = array('sortable' => (bool) $pcf['sortable'], 'show' => $ptx['label_show'], 'hide' => $ptx['label_hide']);
     $bjs .= '<script type="text/javascript">var TABLESORTER = ' . json_encode($config) . '</script>'
         . '<script type="text/javascript" src="' . $pth['folder']['plugins']
         . 'tablesorter/tablesorter.js"></script>';

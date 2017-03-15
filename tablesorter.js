@@ -123,11 +123,6 @@
             }
         }
         each(headings, function (heading, index) {
-            var button = document.createElement("button");
-            while (heading.firstChild) {
-                button.appendChild(heading.firstChild);
-            }
-            heading.appendChild(button);
             if (hasClass(heading, "tablesorter_hide")) {
                 hiddenColumns.push(index);
             } else {
@@ -139,8 +134,16 @@
                     }
                 });
             }
+            if (!TABLESORTER.sortable) {
+                return;
+            }
+            var button = document.createElement("button");
+            while (heading.firstChild) {
+                button.appendChild(heading.firstChild);
+            }
+            heading.appendChild(button);
             setClass(heading.firstChild, "tablesorter_ascdesc");
-            on(heading.firstChild, "click", function () {
+            heading.firstChild.onclick = (function () {
                 var table = heading;
                 while (table.nodeName.toLowerCase() !== "table") {
                     table = table.parentNode;
@@ -186,7 +189,11 @@
                             var defList = document.createElement("dl");
                             each(hiddenColumns, function (column) {
                                 var dt = document.createElement("dt");
-                                dt.innerHTML = headings[column].firstChild.innerHTML;
+                                var headingElement = headings[column];
+                                if (TABLESORTER.sortable) {
+                                    headingElement = headingElement.firstChild;
+                                }
+                                dt.innerHTML = headingElement.innerHTML;
                                 defList.appendChild(dt);
                                 var dd = document.createElement("dd");
                                 dd.innerHTML = row.cells[column].innerHTML;
