@@ -153,6 +153,7 @@
                 });
                 each(find(".tablesorter_collapse", table), function (button) {
                     button.className = "tablesorter_expand";
+                    setTextContent(button, TABLESORTER.show);
                 });
                 each(headings, function (heading2) {
                     if (heading2.firstChild !== heading.firstChild) {
