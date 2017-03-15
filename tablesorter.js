@@ -86,13 +86,15 @@
     }
 
     ready(function () {
-        var sort = (function (table, column, desc) {
+        var sort = (function (table, column, desc, numeric) {
             var tbody = table.tBodies[0];
             var rows = [];
             each(tbody.rows, function (tr) {
                 var td = tr.getElementsByTagName("td")[column];
+                var value = td.textContent || td.innerText;
+                value = numeric ? +value : value.toLowerCase();
                 rows.push({
-                    value: (td.textContent || td.innerText).toLowerCase(),
+                    value: value,
                     element: tr
                 });
             });
@@ -162,10 +164,10 @@
                 });
                 if (hasClass(heading.firstChild, "tablesorter_asc")) {
                     setClass(heading.firstChild, "tablesorter_desc");
-                    sort(table, index, true);
+                    sort(table, index, true, hasClass(heading, "tablesorter_numeric"));
                 } else {
                     setClass(heading.firstChild, "tablesorter_asc");
-                    sort(table, index, false);
+                    sort(table, index, false, hasClass(heading, "tablesorter_numeric"));
                 }
             });
         });
