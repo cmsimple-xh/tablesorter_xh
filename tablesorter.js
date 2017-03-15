@@ -28,6 +28,14 @@
         }
     }
 
+    function range (start, end) {
+        var result = [];
+        for (var i = start; i <= end; i++) {
+            result.push(i);
+        }
+        return result;
+    }
+
     function each(elements, func) {
         for (var i = 0, len = elements.length; i < len; i += 1) {
             func(elements[i], i);
@@ -82,6 +90,49 @@
                     handler.call(document);
                 }
             });
+        }
+    }
+
+    var currentPage = 0;
+
+    function paginate(table) {
+        each(find(".tablesorter_detail", table), function (row) {
+            row.parentNode.removeChild(row);
+        });
+        each(find(".tablesorter_collapse", table), function (button) {
+            button.className = "tablesorter_expand";
+            setTextContent(button, TABLESORTER.show);
+        });
+        var rows = table.tBodies[0].rows;
+        var pageCount = Math.ceil(rows.length / TABLESORTER.maxPages);
+        var start = currentPage * TABLESORTER.maxPages;
+        var end = (currentPage + 1) * TABLESORTER.maxPages - 1;
+        each(rows, function (row, index) {
+            if (index >= start && index <= end) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+        if (pageCount > 1) {
+            var pagination = document.createElement("div");
+            pagination.className = "tablesorter_pagination";
+            each(range(0, pageCount - 1), function (index) {
+                var button = document.createElement("button");
+                setTextContent(button, index + 1);
+                if (index === currentPage) {
+                    button.disabled = true;
+                }
+                button.onclick = (function () {
+                    currentPage = index;
+                    paginate(table);
+                });
+                pagination.appendChild(button);
+            });
+            if (hasClass(table.nextSibling, "tablesorter_pagination")) {
+                table.parentNode.removeChild(table.nextSibling);
+            }
+            table.parentNode.insertBefore(pagination, table.nextSibling);
         }
     }
 
@@ -171,6 +222,7 @@
                     setClass(heading.firstChild, "tablesorter_asc");
                     sort(table, index, false, hasClass(heading, "tablesorter_numeric"));
                 }
+                paginate(table);
             });
         });
 
@@ -218,5 +270,7 @@
                 }
             });
         }
+
+        each(find(".tablesorter"), paginate);
     });
 }());

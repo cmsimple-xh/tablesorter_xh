@@ -49,6 +49,11 @@
     font-weight: bold;
 }
 
+.tablesorter_pagination {
+    text-align: right;
+    padding: 1em 0;
+}
+
 /*
  * Back-end
  */

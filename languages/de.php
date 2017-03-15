@@ -13,5 +13,6 @@ $plugin_tx['tablesorter']['alt_logo']="Sortierbare Tabelle";
 
 $plugin_tx['tablesorter']['cf_auto']="Ob der Tablesorter automatisch aktiviert werden soll.";
 $plugin_tx['tablesorter']['cf_sortable']="Ob die Tabellen sortierbar sein sollen.";
+$plugin_tx['tablesorter']['cf_pagination_max']="Die Höchstanzahl von Zeilen, die auf einmal angezeigt werden sollen. Weitere Zeilen können über  Paginierungsschalter abgerufen werden.";
 
 ?>
