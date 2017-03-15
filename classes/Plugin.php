@@ -72,33 +72,28 @@ class Plugin
      */
     protected function renderVersion()
     {
-        global $pth;
+        global $pth, $plugin_tx;
 
-        return '<h1><a href="http://3-magi.net/?CMSimple_XH/Tablesorter_XH">'
-            . 'Tablesorter_XH</a></h1>'
+        return '<h1>Tablesorter</h1>'
             . tag(
-                'img style="float:left; margin-right:10px" src="'
-                . $pth['folder']['plugins']
-                . 'tablesorter/tablesorter.png" alt="Plugin icon"'
+                'img class="tablesorter_logo" src="' . $pth['folder']['plugins']
+                . 'tablesorter/tablesorter.png" alt="' . $plugin_tx['tablesorter']['alt_logo'] . '"'
             )
             . '<p style="margin-top: 1em">Version: ' . TABLESORTER_VERSION . '</p>'
-            . '<p>Copyright &copy; 2012-2017 <a href="http://3-magi.net/">'
-            . 'Christoph M. Becker</a></p>'
-            . '<p>Tablesorter_XH is powered by the <a href="https://github.com/'
-            . 'Mottie/tablesorter">jQuery tablesorter plugin</a>.</p>'
-            . '<p style="text-align: justify">'
-            . 'This program is free software: you can redistribute it and/or modify'
+            . '<p>Copyright &copy; 2012-2017 Christoph M. Becker</p>'
+            . '<p class="tablesorter_license">'
+            . 'Tablesorter_XH is free software: you can redistribute it and/or modify'
             . ' it under the terms of the GNU General Public License as published by'
             . ' the Free Software Foundation, either version 3 of the License, or'
             . ' (at your option) any later version.</p>'
-            . '<p style="text-align: justify">'
-            . 'This program is distributed in the hope that it will be useful,'
-            . ' but WITHOUT ANY WARRANTY; without even the implied warranty of'
-            . ' MERCHAN&shy;TABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the'
+            . '<p class="tablesorter_license">'
+            . 'Tablesorter_XH is distributed in the hope that it will be useful,'
+            . ' but <em>without any warranty</em>; without even the implied warranty of'
+            . ' <em>merchantability</em> or <em>fitness for a particular purpose</em>.  See the'
             . ' GNU General Public License for more details.</p>'
-            . '<p style="text-align: justify">'
+            . '<p class="tablesorter_license">'
             . 'You should have received a copy of the GNU General Public License'
-            . ' along with this program.  If not, see'
+            . ' along with Tablesorter_XH.  If not, see'
             . ' <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/'
             . '</a>.</p>';
     }

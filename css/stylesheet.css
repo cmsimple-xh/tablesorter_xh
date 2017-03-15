@@ -48,3 +48,14 @@
 .tablesorter dt {
     font-weight: bold;
 }
+
+/*
+ * Back-end
+ */
+.tablesorter_logo {
+    float: left;
+    margin-right: 1em;
+}
+.tablesorter_license {
+    text-align: justify;
+}
