@@ -164,7 +164,8 @@
                 each(hiddenColumns, function (column) {
                     var cell = row.cells[column];
                     cell.style.display = "none";
-                })
+                });
+                row.insertCell();
                 if (row.parentNode.nodeName.toLowerCase() === "tbody") {
                     var button = document.createElement("button");
                     button.className = "tablesorter_expand";
@@ -190,7 +191,8 @@
                             this.className = "tablesorter_expand";
                         }
                     });
-                    row.cells[0].insertBefore(button, row.cells[0].firstChild);
+                    var lastColumn = row.cells.length - 1;
+                    row.cells[lastColumn].insertBefore(button, row.cells[lastColumn].firstChild);
                 }
             });
         }
