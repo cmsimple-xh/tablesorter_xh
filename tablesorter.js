@@ -66,7 +66,19 @@
         }
     }
 
-    on(window, "load", function () {
+    function ready(handler) {
+        if (typeof document.addEventListener !== "undefined") {
+            document.addEventListener("DOMContentLoaded", handler, false);
+        } else if (typeof document.attachEvent !== "undefined") {
+            document.attachEvent("onreadystatechange", function () {
+                if (document.readyState === "complete") {
+                    handler.call(document);
+                }
+            });
+        }
+    }
+
+    ready(function () {
         var sort = (function (table, column, desc) {
             var tbody = table.tBodies[0];
             var rows = [];
