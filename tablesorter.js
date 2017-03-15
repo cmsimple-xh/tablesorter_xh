@@ -99,10 +99,12 @@
                 });
             });
             rows = rows.sort(function (a, b) {
-                var xor = (function (a, b) {
-                    return (a || b) && !(a && b);
-                });
-                return a.value === b.value ? 0 : xor(a.value < b.value, desc) ? -1 : 1;
+                var order = desc ? -1 : 1;
+                if (numeric) {
+                    return (a.value - b.value) * order;
+                } else {
+                    return a.value.localeCompare(b.value) * order;
+                }
             });
             each(rows, function (value) {
                 tbody.appendChild(value.element);

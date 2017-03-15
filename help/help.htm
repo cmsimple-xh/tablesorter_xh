@@ -94,12 +94,13 @@ or customize them according to your needs.</p>
     viewports, but will hide it in small viewports.
 </p>
 <p>
-    The sorting of the rows works by case-insensitive string comparison. This
-    does not work well for numeric columns, so it is possible to mark a numeric
-    column as such by adding the CSS class <code>tablesorter_numeric</code> to
-    the column's <code>&lt;th&gt;</code>. Sorting arbitrary dates and/or times
-    is not supported; if you need this, just use ISO 8601 date/time formats,
-    such as <code>2017-03-15</code> and <code>08:12</code>.
+    The sorting of the rows works by case-insensitive string comparison
+    according to the browser's locale. This does not work well for numeric
+    columns, so it is possible to mark a numeric column as such by adding the
+    CSS class <code>tablesorter_numeric</code> to the column's
+    <code>&lt;th&gt;</code>. Sorting arbitrary dates and/or times is not
+    supported; if you need this, just use ISO 8601 date/time formats, such as
+    <code>2017-03-15</code> and <code>08:12</code>.
 </p>
 <p>
     To actually enable the table enhancements, you have to add the following
