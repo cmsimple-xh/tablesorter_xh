@@ -1,6 +1,6 @@
 <?php
 
 $plugin_cf['tablesorter']['auto']="";
-$plugin_cf['tablesorter']['sortable']="";
+$plugin_cf['tablesorter']['sortable']="true";
 
 ?>
