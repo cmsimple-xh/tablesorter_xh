@@ -38,5 +38,6 @@ function tablesorter()
         . 'tablesorter/tablesorter.js"></script>';
 }
 
-$temp = new Tablesorter\Controller();
-$temp->dispatch();
+$temp = new Tablesorter\Plugin();
+$temp->run();
+$temp = null;

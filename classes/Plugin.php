@@ -21,9 +21,9 @@
 
 namespace Tablesorter;
 
-class Controller
+class Plugin
 {
-    public function dispatch()
+    public function run()
     {
         global $plugin_cf;
 
