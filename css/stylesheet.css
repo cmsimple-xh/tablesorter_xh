@@ -1,19 +1,22 @@
 .tablesorter thead th button{
     width: 100%;
-    padding-right: 24px;
 }
-.tablesorter_ascdesc, .tablesorter_asc, .tablesorter_desc {
-    background-position: right center;
-    background-repeat: no-repeat;
+.tablesorter_ascdesc:after, .tablesorter_asc:after, .tablesorter_desc:after {
+    color: #555;
 }
-.tablesorter_ascdesc {
-    background-image: url("ascdesc-black.png");
+.tablesorter_ascdesc:after {
+    content: "▲▼";
+    letter-spacing: -0.3em;
+    padding: 0 0 0 0.7em;
 }
-.tablesorter_asc {
-    background-image: url("asc-black.png");
+.tablesorter_asc:after, .tablesorter_desc:after {
+    padding: 0 0 0 1.1em;
 }
-.tablesorter_desc {
-    background-image: url("desc-black.png");
+.tablesorter_asc:after {
+    content: "▲";
+}
+.tablesorter_desc:after {
+    content: "▼";
 }
 
 /*
@@ -31,15 +34,16 @@
 
 .tablesorter_expand, .tablesorter_collapse {
     width: 100%;
-    padding-right: 24px;
-    background-position: right center;
-    background-repeat: no-repeat;
 }
-.tablesorter_expand {
-    background-image: url("desc-black.png");
+.tablesorter_expand:after, .tablesorter_collapse:after {
+    color: #555;
+    padding: 0 0 0 0.5em;
 }
-.tablesorter_collapse {
-    background-image: url("asc-black.png");
+.tablesorter_expand:after {
+    content: "▼";
+}
+.tablesorter_collapse:after {
+    content: "▲";
 }
 
 .tablesorter dl {
