@@ -95,6 +95,7 @@
 
     function Widget(table) {
         var currentPage = 0;
+        var hiddenColumns = [];
     
         function paginate() {
             each(find(".tablesorter_detail", table), function (row) {
@@ -162,27 +163,93 @@
             });
         }
 
-        var headings = find("thead th", table);
-        var hiddenColumns = [];
-        var viewportWidth = getViewportWidth();
-        var classesToHide = [];
-        for (var prop in Widget.breakpoints) {
-            if (Widget.breakpoints.hasOwnProperty(prop) && viewportWidth < Widget.breakpoints[prop]) {
-                classesToHide.push(prop);
+        function determineHiddenColumns() {
+            var result = [];
+            var viewportWidth = getViewportWidth();
+            var classesToHide = [];
+            for (var prop in Widget.breakpoints) {
+                if (Widget.breakpoints.hasOwnProperty(prop) && viewportWidth < Widget.breakpoints[prop]) {
+                    classesToHide.push(prop);
+                }
             }
+            each(headings, function (heading, index) {
+                if (hasClass(heading, "tablesorter_hide")) {
+                    result.push(index);
+                } else {
+                    var alreadyHidden = false;
+                    each(classesToHide, function (className) {
+                        if (!alreadyHidden && hasClass(heading, className)) {
+                            result.push(index);
+                            alreadyHidden = true;
+                        }
+                    });
+                }
+            });
+            return result;
         }
-        each(headings, function (heading, index) {
-            if (hasClass(heading, "tablesorter_hide")) {
-                hiddenColumns.push(index);
-            } else {
-                var alreadyHidden = false;
-                each(classesToHide, function (className) {
-                    if (!alreadyHidden && hasClass(heading, className)) {
-                        hiddenColumns.push(index);
-                        alreadyHidden = true;
+
+        function hideColumns() {
+            if (hiddenColumns.length) {
+                each(find("tr", table), function (row) {
+                    each(hiddenColumns, function (column) {
+                        var cell = row.cells[column];
+                        cell.style.display = "none";
+                    });
+                    row.insertCell();
+                    if (row.parentNode.nodeName.toLowerCase() === "tbody") {
+                        var button = document.createElement("button");
+                        button.className = "tablesorter_expand";
+                        setTextContent(button, TABLESORTER.show);
+                        button.onclick = (function () {
+                            if (this.className === "tablesorter_expand") {
+                                var detailRow = row.parentNode.insertRow(row.sectionRowIndex + 1);
+                                detailRow.className = "tablesorter_detail";
+                                var detailCell = detailRow.insertCell();
+                                detailCell.colSpan = row.cells.length;
+                                var defList = document.createElement("dl");
+                                each(hiddenColumns, function (column) {
+                                    var dt = document.createElement("dt");
+                                    var headingElement = headings[column];
+                                    if (TABLESORTER.sortable) {
+                                        headingElement = headingElement.firstChild;
+                                    }
+                                    dt.innerHTML = headingElement.innerHTML;
+                                    defList.appendChild(dt);
+                                    var dd = document.createElement("dd");
+                                    dd.innerHTML = row.cells[column].innerHTML;
+                                    defList.appendChild(dd);
+                                });
+                                detailCell.appendChild(defList);
+                                this.className = "tablesorter_collapse";
+                                setTextContent(this, TABLESORTER.hide);
+                            } else {
+                                row.parentNode.deleteRow(row.sectionRowIndex + 1);
+                                this.className = "tablesorter_expand";
+                                setTextContent(this, TABLESORTER.show);
+                            }
+                        });
+                        var lastColumn = row.cells.length - 1;
+                        row.cells[lastColumn].insertBefore(button, row.cells[lastColumn].firstChild);
                     }
                 });
             }
+        }
+
+        function unhideColumns() {
+            if (hiddenColumns.length) {
+                each(find("tr", table), function (row) {
+                    each(hiddenColumns, function (column) {
+                        var cell = row.cells[column];
+                        cell.style.display = "";
+                    });
+                    row.deleteCell(row.cells.length - 1);
+                });
+            }
+            hiddenColumns = [];
+        }
+
+        var headings = find("thead th", table);
+        each(headings, function (heading, index) {
             if (!TABLESORTER.sortable) {
                 return;
             }
@@ -216,51 +283,16 @@
             });
         });
 
-        if (hiddenColumns.length) {
-            each(find("tr", table), function (row) {
-                each(hiddenColumns, function (column) {
-                    var cell = row.cells[column];
-                    cell.style.display = "none";
-                });
-                row.insertCell();
-                if (row.parentNode.nodeName.toLowerCase() === "tbody") {
-                    var button = document.createElement("button");
-                    button.className = "tablesorter_expand";
-                    setTextContent(button, TABLESORTER.show);
-                    button.onclick = (function () {
-                        if (this.className === "tablesorter_expand") {
-                            var detailRow = row.parentNode.insertRow(row.sectionRowIndex + 1);
-                            detailRow.className = "tablesorter_detail";
-                            var detailCell = detailRow.insertCell();
-                            detailCell.colSpan = row.cells.length;
-                            var defList = document.createElement("dl");
-                            each(hiddenColumns, function (column) {
-                                var dt = document.createElement("dt");
-                                var headingElement = headings[column];
-                                if (TABLESORTER.sortable) {
-                                    headingElement = headingElement.firstChild;
-                                }
-                                dt.innerHTML = headingElement.innerHTML;
-                                defList.appendChild(dt);
-                                var dd = document.createElement("dd");
-                                dd.innerHTML = row.cells[column].innerHTML;
-                                defList.appendChild(dd);
-                            });
-                            detailCell.appendChild(defList);
-                            this.className = "tablesorter_collapse";
-                            setTextContent(this, TABLESORTER.hide);
-                        } else {
-                            row.parentNode.deleteRow(row.sectionRowIndex + 1);
-                            this.className = "tablesorter_expand";
-                            setTextContent(this, TABLESORTER.show);
-                        }
-                    });
-                    var lastColumn = row.cells.length - 1;
-                    row.cells[lastColumn].insertBefore(button, row.cells[lastColumn].firstChild);
-                }
-            });
-        }
-
+        on(window, "resize", function () {
+            var newHiddenColumns = determineHiddenColumns();
+            if (newHiddenColumns.length !== hiddenColumns.length) {
+                unhideColumns();
+                hiddenColumns = newHiddenColumns;
+                hideColumns();
+            }
+        });
+        hiddenColumns = determineHiddenColumns();
+        hideColumns();
         paginate();
     }
 
