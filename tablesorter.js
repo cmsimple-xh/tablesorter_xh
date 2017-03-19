@@ -93,51 +93,51 @@
         }
     }
 
-    var currentPage = 0;
-
-    function paginate(table) {
-        each(find(".tablesorter_detail", table), function (row) {
-            row.parentNode.removeChild(row);
-        });
-        each(find(".tablesorter_collapse", table), function (button) {
-            button.className = "tablesorter_expand";
-            setTextContent(button, TABLESORTER.show);
-        });
-        var rows = table.tBodies[0].rows;
-        var pageCount = Math.ceil(rows.length / TABLESORTER.maxPages);
-        var start = currentPage * TABLESORTER.maxPages;
-        var end = (currentPage + 1) * TABLESORTER.maxPages - 1;
-        each(rows, function (row, index) {
-            if (index >= start && index <= end) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-        if (pageCount > 1) {
-            var pagination = document.createElement("div");
-            pagination.className = "tablesorter_pagination";
-            each(range(0, pageCount - 1), function (index) {
-                var button = document.createElement("button");
-                setTextContent(button, index + 1);
-                if (index === currentPage) {
-                    button.disabled = true;
-                }
-                button.onclick = (function () {
-                    currentPage = index;
-                    paginate(table);
-                });
-                pagination.appendChild(button);
+    function Widget(table) {
+        var currentPage = 0;
+    
+        function paginate() {
+            each(find(".tablesorter_detail", table), function (row) {
+                row.parentNode.removeChild(row);
             });
-            if (hasClass(table.nextSibling, "tablesorter_pagination")) {
-                table.parentNode.removeChild(table.nextSibling);
+            each(find(".tablesorter_collapse", table), function (button) {
+                button.className = "tablesorter_expand";
+                setTextContent(button, TABLESORTER.show);
+            });
+            var rows = table.tBodies[0].rows;
+            var pageCount = Math.ceil(rows.length / TABLESORTER.maxPages);
+            var start = currentPage * TABLESORTER.maxPages;
+            var end = (currentPage + 1) * TABLESORTER.maxPages - 1;
+            each(rows, function (row, index) {
+                if (index >= start && index <= end) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+            if (pageCount > 1) {
+                var pagination = document.createElement("div");
+                pagination.className = "tablesorter_pagination";
+                each(range(0, pageCount - 1), function (index) {
+                    var button = document.createElement("button");
+                    setTextContent(button, index + 1);
+                    if (index === currentPage) {
+                        button.disabled = true;
+                    }
+                    button.onclick = (function () {
+                        currentPage = index;
+                        paginate(table);
+                    });
+                    pagination.appendChild(button);
+                });
+                if (hasClass(table.nextSibling, "tablesorter_pagination")) {
+                    table.parentNode.removeChild(table.nextSibling);
+                }
+                table.parentNode.insertBefore(pagination, table.nextSibling);
             }
-            table.parentNode.insertBefore(pagination, table.nextSibling);
         }
-    }
 
-    ready(function () {
-        var sort = (function (table, column, desc, numeric) {
+        function sort(column, desc, numeric) {
             var tbody = table.tBodies[0];
             var rows = [];
             each(tbody.rows, function (tr) {
@@ -160,20 +160,14 @@
             each(rows, function (value) {
                 tbody.appendChild(value.element);
             });
-        });
+        }
 
-        var headings = find(".tablesorter thead th");
+        var headings = find("thead th", table);
         var hiddenColumns = [];
         var viewportWidth = getViewportWidth();
-        var breakpoints = ({
-            "tablesorter_large": 1200,
-            "tablesorter_medium": 992,
-            "tablesorter_small": 768,
-            "tablesorter_x_small": 480
-        });
         var classesToHide = [];
-        for (var prop in breakpoints) {
-            if (breakpoints.hasOwnProperty(prop) && viewportWidth < breakpoints[prop]) {
+        for (var prop in Widget.breakpoints) {
+            if (Widget.breakpoints.hasOwnProperty(prop) && viewportWidth < Widget.breakpoints[prop]) {
                 classesToHide.push(prop);
             }
         }
@@ -199,10 +193,6 @@
             heading.appendChild(button);
             setClass(heading.firstChild, "tablesorter_ascdesc");
             heading.firstChild.onclick = (function () {
-                var table = heading;
-                while (table.nodeName.toLowerCase() !== "table") {
-                    table = table.parentNode;
-                }
                 each(find(".tablesorter_detail", table), function (row) {
                     row.parentNode.removeChild(row);
                 });
@@ -217,17 +207,17 @@
                 });
                 if (hasClass(heading.firstChild, "tablesorter_asc")) {
                     setClass(heading.firstChild, "tablesorter_desc");
-                    sort(table, index, true, hasClass(heading, "tablesorter_numeric"));
+                    sort(index, true, hasClass(heading, "tablesorter_numeric"));
                 } else {
                     setClass(heading.firstChild, "tablesorter_asc");
-                    sort(table, index, false, hasClass(heading, "tablesorter_numeric"));
+                    sort(index, false, hasClass(heading, "tablesorter_numeric"));
                 }
-                paginate(table);
+                paginate();
             });
         });
 
         if (hiddenColumns.length) {
-            each(find(".tablesorter tr"), function (row) {
+            each(find("tr", table), function (row) {
                 each(hiddenColumns, function (column) {
                     var cell = row.cells[column];
                     cell.style.display = "none";
@@ -271,6 +261,19 @@
             });
         }
 
-        each(find(".tablesorter"), paginate);
+        paginate();
+    }
+
+    Widget.breakpoints = ({
+        "tablesorter_large": 1200,
+        "tablesorter_medium": 992,
+        "tablesorter_small": 768,
+        "tablesorter_x_small": 480
+    });
+
+    ready(function () {
+        each(find(".tablesorter"), function (table) {
+            new Widget(table);
+        });
     });
 }());
