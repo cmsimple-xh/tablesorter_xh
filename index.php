@@ -40,7 +40,7 @@ function tablesorter()
     );
     $bjs .= '<script type="text/javascript">var TABLESORTER = ' . json_encode($config) . '</script>'
         . '<script type="text/javascript" src="' . $pth['folder']['plugins']
-        . 'tablesorter/tablesorter.js"></script>';
+        . 'tablesorter/tablesorter.min.js"></script>';
 }
 
 $temp = new Tablesorter\Plugin();
