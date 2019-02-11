@@ -9,10 +9,12 @@ können, sowie Paginierung sind möglich.
 ## Inhaltsverzeichnis
 
   - [Voraussetzungen](#voraussetzungen)
+  - [Download](#download)
   - [Installation](#installation)
   - [Einstellungen](#einstellungen)
   - [Verwendung](#verwendung)
   - [Einschränkungen](#einschränkungen)
+  - [Fehlerbehebung](#fehlerbehebung)
   - [Lizenz](#lizenz)
   - [Danksagung](#danksagung)
 
@@ -20,6 +22,11 @@ können, sowie Paginierung sind möglich.
 
 Tablesorter\_XH ist ein Plugin für CMSimple\_XH ≥ 1.6. Es benötigt PHP ≥
 5.3.0 mit der JSON Extension.
+
+## Download
+
+Das [aktuelle Release](https://github.com/cmb69/tablesorter_xh/releases/latest)
+kann von Github herunter geladen werden.
 
 ## Installation
 
@@ -100,12 +107,29 @@ werden.
 Höchstens eine verbesserte Tabelle kann auf jeder Seite angezeigt
 werden.
 
+## Fehlerbehebung
+
+Melden Sie Programmfehler und stellen Sie Supportanfragen entweder auf
+[Github](https://github.com/cmb69/tablesorter_xh/issues) oder im
+[CMSimple_XH Forum](https://cmsimpleforum.com/).
+
 ## Lizenz
 
-Tablesorter\_XH kann unter Einhaltung der
-[GPLv3](http://www.gnu.org/licenses/gpl.html) verwendet werden.
+Tablesorter\_XH ist freie Software. Sie können es unter den Bedingungen der
+GNU General Public License, wie von der Free Software Foundation
+veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß
+Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren Version.
 
-© 2012-2017 Christoph M. Becker
+Die Veröffentlichung von Tablesorter\_XH erfolgt in der Hoffnung, daß es
+Ihnen von Nutzen sein wird, aber ohne irgendeine Garantie, sogar ohne
+die implizite Garantie der Marktreife oder der Verwendbarkeit für einen
+bestimmten Zweck. Details finden Sie in der GNU General Public License.
+
+Sie sollten ein Exemplar der GNU General Public License zusammen mit
+Tablesorter\_XH erhalten haben. Falls nicht, siehe
+http://www.gnu.org/licenses/.
+
+Copyright © 2012-2017 Christoph M. Becker
 
 ## Danksagung
 
