@@ -19,7 +19,7 @@
  * along with Tablesorter_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-define('TABLESORTER_VERSION', '@TABLESORTER_VERSION@');
+define('TABLESORTER_VERSION', '1.0beta1');
 
 function tablesorter()
 {
