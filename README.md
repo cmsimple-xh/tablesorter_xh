@@ -116,7 +116,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Tablesorter\_XH.  If not, see <http://www.gnu.org/licenses/>.
 
-Copyright © 2012-2017 Christoph M. Becker
+Copyright © 2012-2019 Christoph M. Becker
 
 ## Credits
 

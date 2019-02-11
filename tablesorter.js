@@ -1,5 +1,5 @@
 /*!
- * Copyright 2014-2017 Christoph M. Becker
+ * Copyright 2014-2019 Christoph M. Becker
  *
  * This file is part of Tablesorter_XH.
  *

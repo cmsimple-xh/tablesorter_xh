@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2012-2017 Christoph M. Becker
+ * Copyright 2012-2019 Christoph M. Becker
  *
  * This file is part of Tablesorter_XH.
  *
@@ -80,7 +80,7 @@ class Plugin
                 . 'tablesorter/tablesorter.png" alt="' . $plugin_tx['tablesorter']['alt_logo'] . '"'
             )
             . '<p style="margin-top: 1em">Version: ' . TABLESORTER_VERSION . '</p>'
-            . '<p>Copyright &copy; 2012-2017 Christoph M. Becker</p>'
+            . '<p>Copyright &copy; 2012-2019 Christoph M. Becker</p>'
             . '<p class="tablesorter_license">'
             . 'Tablesorter_XH is free software: you can redistribute it and/or modify'
             . ' it under the terms of the GNU General Public License as published by'
