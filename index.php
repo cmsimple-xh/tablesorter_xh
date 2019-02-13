@@ -43,6 +43,4 @@ function tablesorter()
         . 'tablesorter/tablesorter.min.js"></script>';
 }
 
-$temp = new Tablesorter\Plugin();
-$temp->run();
-$temp = null;
+(new Tablesorter\Plugin())->run();

@@ -21,7 +21,7 @@ können, sowie Paginierung sind möglich.
 ## Voraussetzungen
 
 Tablesorter\_XH ist ein Plugin für CMSimple\_XH ≥ 1.6. Es benötigt PHP ≥
-5.3.0 mit der JSON Extension.
+5.5.0 mit der JSON Extension.
 
 ## Download
 

@@ -20,7 +20,7 @@ columns which can be expanded, and pagination are supported.
 ## Requirements
 
 Tablesorter\_XH is a plugin for CMSimple\_XH ≥ 1.6. It requires PHP ≥
-5.3.0 with the JSON extension.
+5.5.0 with the JSON extension.
 
 ## Download
 

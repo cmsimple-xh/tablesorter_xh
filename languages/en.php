@@ -6,7 +6,6 @@ $plugin_tx['tablesorter']['label_hide']="less";
 $plugin_tx['tablesorter']['syscheck_title']="System check";
 $plugin_tx['tablesorter']['syscheck_phpversion']="PHP version ≥ %s";
 $plugin_tx['tablesorter']['syscheck_extension']="Extension '%s' loaded";
-$plugin_tx['tablesorter']['syscheck_magic_quotes']="Magic quotes runtime off";
 $plugin_tx['tablesorter']['syscheck_writable']="Folder '%s' writable";
 
 $plugin_tx['tablesorter']['alt_logo']="Sortable table";

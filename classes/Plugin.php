@@ -105,7 +105,7 @@ class Plugin
     {
         global $pth, $plugin_tx;
     
-        $phpVersion =  '5.3.0';
+        $phpVersion =  '5.5.0';
         $ptx = $plugin_tx['tablesorter'];
         $imgdir = $pth['folder']['plugins'] . 'tablesorter/images/';
         $ok = tag('img src="' . $imgdir . 'ok.png" alt="ok"');
@@ -116,8 +116,6 @@ class Plugin
             . '&nbsp;&nbsp;'
             . sprintf($ptx['syscheck_phpversion'], $phpVersion)
             . tag('br') . tag('br');
-        $o .= (!get_magic_quotes_runtime() ? $ok : $fail)
-            . '&nbsp;&nbsp;' . $ptx['syscheck_magic_quotes'] . tag('br') . tag('br');
         foreach (array('config/', 'css/', 'languages/') as $folder) {
             $folders[] = $pth['folder']['plugins'] . 'tablesorter/' . $folder;
         }
