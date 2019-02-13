@@ -23,6 +23,8 @@ namespace Tablesorter;
 
 class Plugin
 {
+    const VERSION = '1.0beta1';
+
     public function run()
     {
         global $plugin_cf;
@@ -65,7 +67,7 @@ class Plugin
                 'img class="tablesorter_logo" src="' . $pth['folder']['plugins']
                 . 'tablesorter/tablesorter.png" alt="' . $plugin_tx['tablesorter']['alt_logo'] . '"'
             )
-            . '<p style="margin-top: 1em">Version: ' . TABLESORTER_VERSION . '</p>'
+            . '<p style="margin-top: 1em">Version: ' . self::VERSION . '</p>'
             . '<p>Copyright &copy; 2012-2019 Christoph M. Becker</p>'
             . '<p class="tablesorter_license">'
             . 'Tablesorter_XH is free software: you can redistribute it and/or modify'

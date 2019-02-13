@@ -19,8 +19,6 @@
  * along with Tablesorter_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-define('TABLESORTER_VERSION', '1.0beta1');
-
 function tablesorter()
 {
     global $bjs, $pth, $plugin_cf, $plugin_tx;
