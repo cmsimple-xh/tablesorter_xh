@@ -13,7 +13,6 @@ können, sowie Paginierung sind möglich.
   - [Installation](#installation)
   - [Einstellungen](#einstellungen)
   - [Verwendung](#verwendung)
-  - [Einschränkungen](#einschränkungen)
   - [Fehlerbehebung](#fehlerbehebung)
   - [Lizenz](#lizenz)
   - [Danksagung](#danksagung)
@@ -100,11 +99,6 @@ Pluginaufruf irgendwo auf der Seite eingefügt werden:
     {{{tablesorter();}}}
 
 Alternative kann die *auto* Option in der Pluginkonfiguration aktiviert
-werden.
-
-## Einschränkungen
-
-Höchstens eine verbesserte Tabelle kann auf jeder Seite angezeigt
 werden.
 
 ## Fehlerbehebung

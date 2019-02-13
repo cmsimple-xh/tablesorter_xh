@@ -12,7 +12,6 @@ columns which can be expanded, and pagination are supported.
   - [Installation](#installation)
   - [Settings](#settings)
   - [Usage](#usage)
-  - [Limitations](#limitations)
   - [Troubleshooting](#troubleshooting)
   - [License](#license)
   - [Credits](#credits)
@@ -91,10 +90,6 @@ plugin call somewhere on the page:
 
 Alternatively, you can enable the *auto* option in the plugin
 configuration.
-
-## Limitations
-
-At most one enhanced table can be shown on each page.
 
 ## Troubleshooting
 
