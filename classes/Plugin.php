@@ -31,25 +31,11 @@ class Plugin
             tablesorter();
         }
         if (defined('XH_ADM') && XH_ADM) {
-            if (function_exists('XH_registerStandardPluginMenuItems')) {
-                XH_registerStandardPluginMenuItems(false);
-            }
-            if ($this->isAdministrationRequested()) {
+            XH_registerStandardPluginMenuItems(false);
+            if (XH_wantsPluginAdministration('tablesorter')) {
                 $this->handleAdministration();
             }
         }
-    }
-
-    /**
-     * @return bool
-     */
-    protected function isAdministrationRequested()
-    {
-        global $tablesorter;
-        
-        return function_exists('XH_wantsPluginAdministration')
-            && XH_wantsPluginAdministration('tablesorter')
-            || isset($tablesorter) && $tablesorter == 'true';
     }
 
     protected function handleAdministration()
