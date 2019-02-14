@@ -36,9 +36,11 @@ function tablesorter()
         'show' => $ptx['label_show'],
         'hide' => $ptx['label_hide']
     );
-    $bjs .= '<script>var TABLESORTER = ' . json_encode($config) . '</script>'
-        . '<script src="' . $pth['folder']['plugins']
-        . 'tablesorter/tablesorter.min.js"></script>';
+    $json = json_encode($config);
+    $bjs .= <<<HTML
+<script>var TABLESORTER = $json;</script>
+<script async src="{$pth['folder']['plugins']}tablesorter/tablesorter.min.js"></script>
+HTML;
 }
 
 (new Tablesorter\Plugin())->run();
