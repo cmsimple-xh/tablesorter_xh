@@ -23,7 +23,7 @@ namespace Tablesorter;
 
 class Plugin
 {
-    const VERSION = '1.0beta1';
+    const VERSION = '1.0beta2';
 
     public function run()
     {
@@ -67,7 +67,8 @@ class Plugin
             . '<img class="tablesorter_logo" src="' . $pth['folder']['plugins']
             . 'tablesorter/tablesorter.png" alt="' . $plugin_tx['tablesorter']['alt_logo'] . '">'
             . '<p style="margin-top: 1em">Version: ' . self::VERSION . '</p>'
-            . '<p>Copyright &copy; 2012-2019 Christoph M. Becker</p>'
+            . '<p>Copyright &copy; 2012-2024 Christoph M. Becker</p>'
+            . '<p>Copyright &copy; 2025 CMSimple_XH developers</p>'
             . '<p class="tablesorter_license">'
             . 'Tablesorter_XH is free software: you can redistribute it and/or modify'
             . ' it under the terms of the GNU General Public License as published by'
@@ -92,7 +93,7 @@ class Plugin
     {
         global $pth, $plugin_tx;
     
-        $phpVersion =  '5.5.0';
+        $phpVersion =  '7.4.0';
         $ptx = $plugin_tx['tablesorter'];
         $imgdir = $pth['folder']['plugins'] . 'tablesorter/images/';
         $ok = '<img src="' . $imgdir . 'ok.png" alt="ok">';
