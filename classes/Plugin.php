@@ -117,8 +117,12 @@ class Plugin
         }
         foreach ($paths as $path) {
             $o .= '<p>'
-                .(is_writable($path) ? $ok : $warn)
-                . '&nbsp;&nbsp;' . sprintf($ptx['syscheck_writable'], $path)
+                . (is_writable($path) ? $ok : $warn)
+                . '&nbsp;&nbsp;' . sprintf($ptx['syscheck_writable'],
+                                           is_file($path)
+                                            ? $ptx['syscheck_file']
+                                            : $ptx['syscheck_folder'],
+                                           $path)
                 . '</p>'
                 . "\n";
         }
