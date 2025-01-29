@@ -63,8 +63,9 @@
  */
 .tablesorter_logo {
     float: left;
-    margin-right: 1em;
+    margin: 0 1em 1em 0;
 }
 .tablesorter_license {
     text-align: justify;
+    clear: left;
 }

@@ -1,5 +1,7 @@
 <?php
 
+$plugin_tx['tablesorter']['menu_main']="Info";
+
 $plugin_tx['tablesorter']['label_show']="more";
 $plugin_tx['tablesorter']['label_hide']="less";
 

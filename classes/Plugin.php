@@ -34,7 +34,7 @@ class Plugin
             tablesorter();
         }
         if (defined('XH_ADM') && XH_ADM) {
-            XH_registerStandardPluginMenuItems(false);
+            XH_registerStandardPluginMenuItems(true);
             if (XH_wantsPluginAdministration('tablesorter')) {
                 $this->handleAdministration();
             }
@@ -45,9 +45,10 @@ class Plugin
     {
         global $admin, $action, $o;
 
-        $o .= print_plugin_admin('off');
+        $o .= print_plugin_admin('on');
         switch ($admin) {
             case '':
+            case 'plugin_main':
                 $o .= $this->renderVersion()
                     . '<hr>'
                     . $this->renderSystemCheck();
@@ -68,8 +69,8 @@ class Plugin
             . '<img class="tablesorter_logo" src="' . $pth['folder']['plugins']
             . 'tablesorter/tablesorter.png" alt="' . $plugin_tx['tablesorter']['alt_logo'] . '">'
             . '<p style="margin-top: 1em">Version: ' . self::VERSION . '</p>'
-            . '<p>Copyright &copy; 2012-2024 Christoph M. Becker</p>'
-            . '<p>Copyright &copy; 2025 CMSimple_XH developers</p>'
+            . '<p>Copyright &copy; 2012-2024 Christoph M. Becker<br>'
+            . 'Copyright &copy; 2025 CMSimple_XH developers</p>'
             . '<p class="tablesorter_license">'
             . 'Tablesorter_XH is free software: you can redistribute it and/or modify'
             . ' it under the terms of the GNU General Public License as published by'
@@ -92,7 +93,7 @@ class Plugin
      */
     protected function renderSystemCheck()
     {
-        global $pth, $plugin_tx;
+        global $pth, $plugin_tx, $sl;
     
         $phpVersion =  '7.4.0';
         $ptx = $plugin_tx['tablesorter'];
@@ -100,18 +101,26 @@ class Plugin
         $ok = '<img src="' . $imgdir . 'ok.png" alt="ok">';
         $warn = '<img src="' . $imgdir . 'warn.png" alt="warning">';
         $fail = '<img src="' . $imgdir . 'fail.png" alt="failure">';
-        $o = '<hr>' . '<h4>' . $ptx['syscheck_title'] . '</h4>'
-            . (version_compare(PHP_VERSION, $phpVersion) >= 0 ? $ok : $fail)
-            . '&nbsp;&nbsp;'
-            . sprintf($ptx['syscheck_phpversion'], $phpVersion)
-            . '<br><br>';
-        foreach (array('config/', 'css/', 'languages/') as $folder) {
-            $folders[] = $pth['folder']['plugins'] . 'tablesorter/' . $folder;
+        $o = '<h2>' . $ptx['syscheck_title'] . '</h2>'
+           . "\n"
+           . '<p>'
+           . (version_compare(PHP_VERSION, $phpVersion) >= 0 ? $ok : $fail)
+           . '&nbsp;&nbsp;'
+           . sprintf($ptx['syscheck_phpversion'], $phpVersion)
+           . '</p>'
+           . "\n";
+        foreach (array('languages/',
+                       'languages/' . $sl . '.php',
+                       'config/config.php',
+                       'css/stylesheet.css') as $path) {
+            $paths[] = $pth['folder']['plugins'] . 'tablesorter/' . $path;
         }
-        foreach ($folders as $folder) {
-            $o .= (is_writable($folder) ? $ok : $warn)
-                . '&nbsp;&nbsp;' . sprintf($ptx['syscheck_writable'], $folder)
-                . '<br>';
+        foreach ($paths as $path) {
+            $o .= '<p>'
+                .(is_writable($path) ? $ok : $warn)
+                . '&nbsp;&nbsp;' . sprintf($ptx['syscheck_writable'], $path)
+                . '</p>'
+                . "\n";
         }
         return $o;
     }
