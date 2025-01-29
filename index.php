@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Copyright 2012-2019 Christoph M. Becker
+ * Copyright 2012-2024 Christoph M. Becker
+ * Copyright 2025 CMSimple_XH developers
  *
  * This file is part of Tablesorter_XH.
  *
@@ -39,7 +40,21 @@ function tablesorter()
     $json = json_encode($config);
     $bjs .= <<<HTML
 <script>var TABLESORTER = $json;</script>
-<script async src="{$pth['folder']['plugins']}tablesorter/tablesorter.min.js"></script>
+<script async src="{$pth['folder']['plugins']}tablesorter/js/tablesorter.min.js"></script>
+HTML;
+}
+
+function tablecolumns()
+{
+    global $bjs, $pth;
+    static $tc_count = false;
+
+    if ($tc_count) {
+        return;
+    }
+    $tc_count = true;
+    $bjs .= <<<HTML
+<script async src="{$pth['folder']['plugins']}tablesorter/js/tablecolumns.min.js"></script>
 HTML;
 }
 

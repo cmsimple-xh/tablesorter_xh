@@ -33,6 +33,10 @@ class Plugin
         if ($plugin_cf['tablesorter']['auto']) {
             tablesorter();
         }
+        if ($plugin_cf['tablesorter']['auto']
+        && $plugin_cf['tablesorter']['select_columns']) {
+            tablecolumns();
+        }
         if (defined('XH_ADM') && XH_ADM) {
             XH_registerStandardPluginMenuItems(true);
             if (XH_wantsPluginAdministration('tablesorter')) {
