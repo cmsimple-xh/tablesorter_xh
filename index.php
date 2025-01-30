@@ -42,6 +42,8 @@ function tablesorter()
 <script>var TABLESORTER = $json;</script>
 <script async src="{$pth['folder']['plugins']}tablesorter/js/tablesorter.min.js"></script>
 HTML;
+
+    return '<!-- tablesorter -->';
 }
 
 function tablecolumns()
@@ -56,6 +58,8 @@ function tablecolumns()
     $bjs .= <<<HTML
 <script async src="{$pth['folder']['plugins']}tablesorter/js/tablecolumns.min.js"></script>
 HTML;
+
+    return '<!-- tablecolumns -->';
 }
 
 (new Tablesorter\Plugin())->run();
