@@ -71,7 +71,7 @@ class Plugin
 
         return '<h1>Tablesorter</h1>'
             . '<img class="tablesorter_logo" src="' . $pth['folder']['plugins']
-            . 'tablesorter/tablesorter.png" alt="' . $plugin_tx['tablesorter']['alt_logo'] . '">'
+            . 'tablesorter/images/tablesorter.png" alt="' . $plugin_tx['tablesorter']['alt_logo'] . '">'
             . '<p style="margin-top: 1em">Version: ' . self::VERSION . '</p>'
             . '<p>Copyright &copy; 2012-2024 Christoph M. Becker<br>'
             . 'Copyright &copy; 2025 CMSimple_XH developers</p>'
