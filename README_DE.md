@@ -20,11 +20,11 @@ können, sowie Paginierung sind möglich.
 ## Voraussetzungen
 
 Tablesorter\_XH ist ein Plugin für CMSimple\_XH ≥ 1.7.0. Es benötigt PHP ≥
-5.5.0 mit der JSON Extension.
+7.4.0 mit der JSON Extension.
 
 ## Download
 
-Das [aktuelle Release](https://github.com/cmb69/tablesorter_xh/releases/latest)
+Das [aktuelle Release](https://github.com/cmsimple-xh/tablesorter_xh/releases)
 kann von Github herunter geladen werden.
 
 ## Installation
@@ -104,7 +104,7 @@ werden.
 ## Fehlerbehebung
 
 Melden Sie Programmfehler und stellen Sie Supportanfragen entweder auf
-[Github](https://github.com/cmb69/tablesorter_xh/issues) oder im
+[Github](https://github.com/cmsimple-xh/tablesorter_xh/issues) oder im
 [CMSimple_XH Forum](https://cmsimpleforum.com/).
 
 ## Lizenz
@@ -123,7 +123,8 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit
 Tablesorter\_XH erhalten haben. Falls nicht, siehe
 http://www.gnu.org/licenses/.
 
-Copyright © 2012-2019 Christoph M. Becker
+Copyright © 2012-2024 Christoph M. Becker
+Copyright © 2025 CMSimple_XH developers
 
 ## Danksagung
 

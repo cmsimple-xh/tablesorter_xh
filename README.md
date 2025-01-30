@@ -19,11 +19,11 @@ columns which can be expanded, and pagination are supported.
 ## Requirements
 
 Tablesorter\_XH is a plugin for CMSimple\_XH ≥ 1.7.0. It requires PHP ≥
-5.5.0 with the JSON extension.
+7.4.0 with the JSON extension.
 
 ## Download
 
-The [lastest release](https://github.com/cmb69/tablesorter_xh/releases/latest)
+The [lastest release](https://github.com/cmsimple-xh/tablesorter_xh/releases)
 is available for download on Github.
 
 ## Installation
@@ -93,7 +93,7 @@ configuration.
 
 ## Troubleshooting
 
-Report bugs and ask for support either on [Github](https://github.com/cmb69/tablesorter_xh/issues)
+Report bugs and ask for support either on [Github](https://github.com/cmsimple-xh/tablesorter_xh/issues)
 or in the [CMSimple_XH Forum](https://cmsimpleforum.com/).
 
 ## License
@@ -111,7 +111,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Tablesorter\_XH.  If not, see <http://www.gnu.org/licenses/>.
 
-Copyright © 2012-2019 Christoph M. Becker
+Copyright © 2012-2024 Christoph M. Becker
+Copyright © 2025 CMSimple_XH developers
 
 ## Credits
 
