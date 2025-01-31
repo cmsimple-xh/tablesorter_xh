@@ -101,15 +101,16 @@ class Plugin
     
         $phpVersion =  '7.4.0';
         $ptx = $plugin_tx['tablesorter'];
-        $imgdir = $pth['folder']['plugins'] . 'tablesorter/images/';
-        $ok = '<img src="' . $imgdir . 'ok.png" alt="ok">';
-        $warn = '<img src="' . $imgdir . 'warn.png" alt="warning">';
-        $fail = '<img src="' . $imgdir . 'fail.png" alt="failure">';
+        $ok = 'xh_success';
+        $warn = 'xh_warning';
+        $fail = 'xh_fail';
         $o = '<h2>' . $ptx['syscheck_title'] . '</h2>'
            . "\n"
-           . '<p>'
-           . (version_compare(PHP_VERSION, $phpVersion) >= 0 ? $ok : $fail)
-           . '&nbsp;&nbsp;'
+           . '<p class="'
+           . (version_compare(PHP_VERSION, $phpVersion) >= 0
+                ? $ok
+                : $fail)
+           . '">'
            . sprintf($ptx['syscheck_phpversion'], $phpVersion)
            . '</p>'
            . "\n";
@@ -120,13 +121,19 @@ class Plugin
             $paths[] = $pth['folder']['plugins'] . 'tablesorter/' . $path;
         }
         foreach ($paths as $path) {
-            $o .= '<p>'
-                . (is_writable($path) ? $ok : $warn)
-                . '&nbsp;&nbsp;' . sprintf($ptx['syscheck_writable'],
-                                           is_file($path)
-                                            ? $ptx['syscheck_file']
-                                            : $ptx['syscheck_folder'],
-                                           $path)
+            if(is_writable($path)) {
+                $class = $ok;
+                $state = '';
+            } else {
+                $class = $warn;
+                $state = $ptx['syscheck_neg_state'];
+            }
+            $o .= '<p class="'
+                . $class
+                . '">'
+                . sprintf($ptx['syscheck_writable'],
+                          $path,
+                          $state)
                 . '</p>'
                 . "\n";
         }

@@ -10,7 +10,8 @@ $plugin_tx['tablesorter']['syscheck_phpversion']="PHP-Version ≥ %s";
 $plugin_tx['tablesorter']['syscheck_extension']="Erweiterung '%s' geladen";
 $plugin_tx['tablesorter']['syscheck_folder'] = "Ordner";
 $plugin_tx['tablesorter']['syscheck_file'] = "Datei";
-$plugin_tx['tablesorter']['syscheck_writable']="%1\$s '%2\$s' beschreibbar";
+$plugin_tx['tablesorter']['syscheck_neg_state'] = "nicht";
+$plugin_tx['tablesorter']['syscheck_writable']="'%1\$s' %2\$s beschreibbar";
 
 $plugin_tx['tablesorter']['alt_logo']="Sortierbare Tabelle";
 
