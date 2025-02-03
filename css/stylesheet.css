@@ -1,63 +1,3 @@
-.tablesorter thead th button{
-    width: 100%;
-}
-.tablesorter_ascdesc:after, .tablesorter_asc:after, .tablesorter_desc:after {
-    color: #555;
-}
-.tablesorter_ascdesc:after {
-    content: "▲▼";
-    letter-spacing: -0.3em;
-    padding: 0 0 0 0.7em;
-}
-.tablesorter_asc:after, .tablesorter_desc:after {
-    padding: 0 0 0 1.1em;
-}
-.tablesorter_asc:after {
-    content: "▲";
-}
-.tablesorter_desc:after {
-    content: "▼";
-}
-
-/*
- * Zebra look
- */
-.tablesorter tbody tr {
-    color: black;
-}
-.tablesorter tbody tr:nth-child(2n+1) {
-    background: #fff;
-}
-.tablesorter tbody tr:nth-child(2n) {
-    background: #eee;
-}
-
-.tablesorter_expand, .tablesorter_collapse {
-    width: 100%;
-}
-.tablesorter_expand:after, .tablesorter_collapse:after {
-    color: #555;
-    padding: 0 0 0 0.5em;
-}
-.tablesorter_expand:after {
-    content: "▼";
-}
-.tablesorter_collapse:after {
-    content: "▲";
-}
-
-.tablesorter dl {
-    margin-left: 2em;
-}
-.tablesorter dt {
-    font-weight: bold;
-}
-
-.tablesorter_pagination {
-    text-align: right;
-    padding: 1em 0;
-}
-
 /*
  * Back-end
  */
@@ -68,4 +8,141 @@
 .tablesorter_license {
     text-align: justify;
     clear: left;
+}
+/*
+ * Front-end
+ */
+.tablesorter,
+.tablecolumns_selection ~ * {
+    --button-border: 0px solid transparent;
+    --button-cursor: pointer;
+    --button-display: block;
+    --button-font-size: inherit;
+    --button-height: 100%;
+    --button-min-height: 2.5em;
+    --button-padding: 0.25em 0.5em;
+    --button-width: 100%;
+}
+.tablesorter thead th button {
+    border: var(--button-border);
+    cursor: var(--button-cursor);
+    display: var(--button-display);
+    font-size: var(--button-font-size);
+    height: var(--button-height);
+    min-height: var(--button-min-height);
+    padding: var(--button-padding);
+    width: var(--button-width);
+}
+.tablesorter_ascdesc:after,
+.tablesorter_asc:after,
+.tablesorter_desc:after {
+    color: inherit;
+}
+.tablesorter_ascdesc:after {
+    content: "▲▼";
+    letter-spacing: -0.3em;
+    padding: 0 0 0 0.7em;
+}
+.tablesorter_asc:after,
+.tablesorter_desc:after {
+    padding: 0 0 0 1.1em;
+}
+.tablesorter_asc:after {
+    content: "▲";
+}
+.tablesorter_desc:after {
+    content: "▼";
+}
+
+/*
+ * tbody Zebra look
+ */
+.tablesorter tbody tr {
+    color: black;
+}
+.tablesorter tbody tr:nth-child(odd) {
+    background: #fff;
+}
+.tablesorter tbody tr:nth-child(even) {
+    background: #eee;
+}
+.tablesorter.tablecolumns tbody tr td:not(:has(button)) {
+    padding: var(--button-padding);
+}
+
+/* Button show more/less */
+.tablesorter_expand,
+.tablesorter_collapse {
+    border: var(--button-border);
+    cursor: var(--button-cursor);
+    display: var(--button-display);
+    font-size: var(--button-font-size);
+    height: var(--button-height);
+    padding: var(--button-padding);
+    width: 100px;
+}
+td:has(.tablesorter_expand),
+td:has(.tablesorter_collapse) {
+    width: 100px;
+}
+.tablesorter_expand:after,
+.tablesorter_collapse:after {
+    color: inherit;
+    padding: 0 0 0 0.5em;
+}
+.tablesorter_expand:after {
+    content: "▼";
+}
+.tablesorter_collapse:after {
+    content: "▲";
+}
+.tablesorter dl {
+    margin-left: 2em;
+}
+.tablesorter dt {
+    font-weight: bold;
+}
+
+/* Pagination */
+.tablesorter_pagination {
+    text-align: right;
+    padding: 1em 0;
+}
+
+/* Columns selection */
+.tablecolumns_selection {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: inside none none;
+    margin: 0;
+    padding: 0 !important;
+    
+}
+.tablecolumns_selection li {
+    display: flex;
+    margin: 0 1em 0.5em 0;
+
+}
+.tablecolumns_selection label {
+    display: inline-flex;
+    align-items: center;
+}
+.tablecolumns_selection li input {
+    accent-color: #616161;
+    cursor: pointer;
+    height: 20px;
+    margin: 0 .25em 0 0;
+    width: 20px;
+}
+.tablecolumns_selection li:before {
+    content: "" !important;
+}
+.tablecolumns_selection ~ .tablecolumns_button {
+    border: var(--button-border);
+    cursor: var(--button-cursor);
+    font-size: var(--button-font-size);
+    height: var(--button-height);
+    min-height: var(--button-min-height);
+    padding: var(--button-padding);
+    margin: 0 0 0.5em 0;
 }
