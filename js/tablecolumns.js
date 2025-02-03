@@ -50,7 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var columnsButton = document.createElement("button");
         columnsButton.className = "tablecolumns_button";
-        columnsButton.appendChild(document.createTextNode("Columns …"));
+        //columnsButton.appendChild(document.createTextNode("Columns …"));
+        let tstc_button = TABLECOLUMNS.tstc_button;
+        columnsButton.appendChild(document.createTextNode(tstc_button));
         columnsButton.onclick = (function () {
             if (selectionList.style.display === "none") {
                 selectionList.style.display = "";

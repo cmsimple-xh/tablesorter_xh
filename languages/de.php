@@ -4,6 +4,7 @@ $plugin_tx['tablesorter']['menu_main']="Info";
 
 $plugin_tx['tablesorter']['label_show']="mehr";
 $plugin_tx['tablesorter']['label_hide']="weniger";
+$plugin_tx['tablesorter']['tablecolumns_button']="Spaltenauswahl";
 
 $plugin_tx['tablesorter']['syscheck_title']="Systemprüfung";
 $plugin_tx['tablesorter']['syscheck_phpversion']="PHP-Version ≥ %s";

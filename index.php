@@ -50,7 +50,7 @@ HTML;
 
 function tablecolumns()
 {
-    global $bjs, $pth;
+    global $bjs, $plugin_tx, $pth;
     static $tc_count = false;
 
 if (isset($GLOBALS['xh_searching']) && $GLOBALS['xh_searching']) return;
@@ -59,7 +59,14 @@ if (isset($GLOBALS['xh_searching']) && $GLOBALS['xh_searching']) return;
         return;
     }
     $tc_count = true;
+    $ptx = $plugin_tx['tablesorter'];
+    $config = array(
+        'tstc_button' => $ptx['tablecolumns_button']
+    );
+    $json = json_encode($config);
+    $bjs .= "\n";
     $bjs .= <<<HTML
+<script>var TABLECOLUMNS = $json;</script>
 <script async src="{$pth['folder']['plugins']}tablesorter/js/tablecolumns.min.js"></script>
 HTML;
 
