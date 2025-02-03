@@ -25,6 +25,8 @@ function tablesorter()
     global $bjs, $pth, $plugin_cf, $plugin_tx;
     static $again = false;
 
+if (isset($GLOBALS['xh_searching']) && $GLOBALS['xh_searching']) return;
+
     if ($again) {
         return;
     }
@@ -50,6 +52,8 @@ function tablecolumns()
 {
     global $bjs, $pth;
     static $tc_count = false;
+
+if (isset($GLOBALS['xh_searching']) && $GLOBALS['xh_searching']) return;
 
     if ($tc_count) {
         return;
