@@ -15,5 +15,5 @@ $plugin_tx['tablesorter']['alt_logo']="Sortable table";
 
 $plugin_tx['tablesorter']['cf_auto']="Whether the Tablesorter should be activated automatically.";
 $plugin_tx['tablesorter']['cf_sortable']="Whether the tables should be sortable.";
-$plugin_tx['tablesorter']['cf_select_columns']="Activate column selection.";
+$plugin_tx['tablesorter']['cf_select_columns']="Activate column selection. (Only in context with \"auto\")";
 $plugin_tx['tablesorter']['cf_pagination_max']="The maximum number of rows to show at once. The other rows will be available via pagination buttons.";
