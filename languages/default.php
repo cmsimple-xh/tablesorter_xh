@@ -8,8 +8,6 @@ $plugin_tx['tablesorter']['label_hide']="less";
 $plugin_tx['tablesorter']['syscheck_title']="System check";
 $plugin_tx['tablesorter']['syscheck_phpversion']="PHP version ≥ %s";
 $plugin_tx['tablesorter']['syscheck_extension']="Extension '%s' loaded";
-$plugin_tx['tablesorter']['syscheck_folder'] = "Folder";
-$plugin_tx['tablesorter']['syscheck_file'] = "File";
 $plugin_tx['tablesorter']['syscheck_neg_state'] = "not";
 $plugin_tx['tablesorter']['syscheck_writable']="'%1\$s' %2\$s writable";
 
