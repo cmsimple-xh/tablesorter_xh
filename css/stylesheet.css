@@ -108,6 +108,9 @@ td:has(.tablesorter_collapse) {
     text-align: right;
     padding: 1em 0;
 }
+.tablesorter_pagination button[disabled] {
+    filter: opacity(0.5);
+}
 
 /* Columns selection */
 .tablecolumns_selection {
